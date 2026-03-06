@@ -1,0 +1,36 @@
+<section class="section py-6">
+  <div class="container">
+    <h2 class="title is-2 medieval-font has-text-centered mb-6" data-aos="fade-up">Галерея нашого комплексу</h2>
+    <div class="columns is-multiline">
+      <div class="column is-3" *ngFor="let photo of photos; let i = index" data-aos="zoom-in">
+        <figure class="image is-square is-clickable hover-lift" (click)="openPhoto(i)">
+          <img [src]="photo" alt="Sherwood Gallery" class="is-rounded shadow" style="object-fit: cover; height: 100%;">
+          <div class="is-overlay is-flex is-align-items-center is-justify-content-center" style="background: rgba(0,0,0,0.2); opacity: 0; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
+            <span class="icon has-text-white is-large">
+              <i class="fas fa-search-plus fa-2x"></i>
+            </span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="modal" [class.is-active]="selectedPhoto()">
+  <div class="modal-background" (click)="closePhoto()"></div>
+  <div class="modal-content is-flex is-align-items-center is-justify-content-center" style="max-width: 90vw;">
+    <button class="button is-ghost is-large has-text-white p-4" (click)="prevPhoto($event)" style="position: absolute; left: 0; z-index: 10;">
+      <i class="fas fa-chevron-left fa-3x"></i>
+    </button>
+    
+    <p class="image">
+      <img [src]="selectedPhoto()" alt="Selected Photo" style="max-height: 80vh; object-fit: contain;">
+    </p>
+
+    <button class="button is-ghost is-large has-text-white p-4" (click)="nextPhoto($event)" style="position: absolute; right: 0; z-index: 10;">
+      <i class="fas fa-chevron-right fa-3x"></i>
+    </button>
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="closePhoto()"></button>
+</div>

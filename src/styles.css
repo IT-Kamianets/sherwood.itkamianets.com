@@ -1,0 +1,217 @@
+@import "bulma/css/bulma.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "aos/dist/aos.css";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #1b5e20; /* Deep Forest Green */
+  --accent-color: #8d6e63; /* Wood Brown */
+  --gold-color: #c5a059;
+  --bg-light: #fdfbf7;
+  --text-light: #2c3e50;
+  --bg-dark: #121212;
+  --text-dark: #e0e0e0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .title, .navbar-brand h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+.medieval-font {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Bulma Overrides */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.button.is-primary {
+  background-color: var(--primary-color);
+  border-color: transparent;
+  color: #fff;
+}
+
+.button.is-primary:hover {
+  background-color: #144e1a;
+  color: #fff;
+}
+
+.has-text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* Theme support */
+[data-theme='light'] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+[data-theme='light'] .navbar {
+  background-color: rgba(253, 251, 247, 0.95);
+}
+
+[data-theme='dark'] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .navbar {
+  background-color: rgba(18, 18, 18, 0.95);
+}
+
+[data-theme='dark'] .navbar-item {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .navbar-burger {
+  color: #fff;
+}
+
+[data-theme='dark'] .navbar-menu {
+  background-color: #1a1a1a;
+}
+
+[data-theme='dark'] .navbar-item:hover {
+  background-color: #2a2a2a;
+  color: var(--gold-color);
+}
+
+[data-theme='dark'] .title, [data-theme='dark'] .subtitle, [data-theme='dark'] strong {
+  color: #fff !important;
+}
+
+[data-theme='dark'] .card {
+  background-color: #1e1e1e;
+  color: var(--text-dark);
+  border: 1px solid #333;
+}
+
+[data-theme='dark'] .card .title, [data-theme='dark'] .card .subtitle {
+  color: #fff !important;
+}
+
+[data-theme='dark'] .has-background-light {
+  background-color: #1a1a1a !important;
+}
+
+[data-theme='dark'] .footer {
+  background-color: #0a0a0a;
+  color: #888;
+}
+
+[data-theme='dark'] .input, [data-theme='dark'] .textarea {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #fff;
+}
+
+[data-theme='dark'] .label {
+  color: #bbb;
+}
+
+/* Mobile Bottom Header */
+@media screen and (max-width: 1023px) {
+  .navbar.is-fixed-top {
+    top: auto;
+    bottom: 0;
+  }
+  .navbar-spacer {
+    display: none;
+  }
+  body {
+    padding-bottom: 3.25rem;
+    padding-top: 0;
+  }
+  .navbar-menu.is-active {
+    position: fixed;
+    bottom: 3.25rem;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 3.25rem);
+    overflow-y: auto;
+  }
+}
+
+/* Gallery Modal Navigation */
+.modal-content .button.is-ghost {
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.modal-content .button.is-ghost:hover {
+  background: rgba(0,0,0,0.6);
+  text-decoration: none;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content .button.is-ghost {
+    width: 40px;
+    height: 40px;
+  }
+  .modal-content .button.is-ghost i {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations & Effects */
+.hero {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-attachment: fixed;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.border-gold {
+  border: 2px solid var(--gold-color) !important;
+}
+
+.shadow {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Modal adjustments */
+.modal-content img {
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}

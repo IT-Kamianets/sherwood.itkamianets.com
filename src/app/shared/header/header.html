@@ -1,0 +1,44 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" routerLink="/">
+        <img src="image/logo.png" alt="Logo" class="mr-2" style="max-height: 40px;">
+        <h1 class="title is-4 has-text-primary medieval-font">Sherwood Stream</h1>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" (click)="toggleMenu()" [class.is-active]="isMenuOpen">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" [class.is-active]="isMenuOpen">
+      <div class="navbar-start">
+        <a class="navbar-item" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="isMenuOpen = false">Головна</a>
+        <a class="navbar-item" routerLink="/rooms" routerLinkActive="is-active" (click)="isMenuOpen = false">Номери</a>
+        <a class="navbar-item" routerLink="/restaurant" routerLinkActive="is-active" (click)="isMenuOpen = false">Ресторан</a>
+        <a class="navbar-item" routerLink="/spa" routerLinkActive="is-active" (click)="isMenuOpen = false">SPA</a>
+        <a class="navbar-item" routerLink="/gallery" routerLinkActive="is-active" (click)="isMenuOpen = false">Галерея</a>
+        <a class="navbar-item" routerLink="/contacts" routerLinkActive="is-active" (click)="isMenuOpen = false">Контакти</a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <button class="button is-ghost" (click)="themeService.toggleTheme()">
+              <span class="icon">
+                <i class="fas" [class.fa-moon]="themeService.theme() === 'light'" [class.fa-sun]="themeService.theme() === 'dark'"></i>
+              </span>
+            </button>
+            <a class="button is-primary" routerLink="/contacts">
+              <strong>Забронювати</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="navbar-spacer" style="height: 3.25rem;"></div>
